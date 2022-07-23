@@ -9,12 +9,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem "slim-rails"
 gem 'bootstrap', '~> 5.0.0'
 gem 'simple_form'
-
+gem 'pg', '~> 1.1'
 
 
 #Use the below gem if you want to filter Units, just ask me, I used it in my fyp
 #gem 'acts-as-taggable-on', '~> 9.0'
-
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
