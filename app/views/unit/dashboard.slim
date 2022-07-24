@@ -5,30 +5,46 @@
         .row.row-homepage
           .col-6
             .container.border.rounded.shadow-sm.user-dashboard-gradient-left.p-5.h-100 style="color:white"
-              h2 Unit Information
-              h3 Unit Type: Linked
-              h3 Double Storey
-              h3 Tenure: Freehold
-              h3 Floor Size: 4960 sqft
-              h3 Land Size: 6000 sqft
-              h3 3 Bedroom
-              h3 2 Washroom
+              .h1-dashboard 
+                | Unit Type: 
+                =@unit.unit_type 
+              .h1-dashboard.mt-3 
+                | Storey: 
+                =@unit.storey 
+              .h1-dashboard.mt-3 
+                | Tenure: 
+                =@unit.tenure 
+              .h1-dashboard.mt-3 
+                | Floor Size: 
+                =@unit.floor_size 
+              .h1-dashboard.mt-3 
+                | Land Size:
+                =@unit.land_size 
+              .h1-dashboard.mt-3 
+                =@unit.bedroom 
+                |  Bedroom
+              .h1-dashboard.mt-3 
+                =@unit.washroom
+                |  Washroom
+              .h1-dashboard.mt-3 
+                | Current Tenant Name:
+                =@unit.tenant_name
           .col-1
           .col-5 
             .col-12
               .container.border.rounded.shadow-sm.user-dashboard-gradient-right.p-5 style="color:white"
                 
-                h3 Unit Number: 28
-                h3.mt-3 28 JLN 51/205 SEKSYEN 51, 46050 Petaling Jaya, Selangor Malaysia
-
+                .h1-dashboard 
+                  | Unit Number: 
+                  =@unit.unit_number
+                .h1-dashboard.mt-3 =@unit.unit_address
             .col-12
               .container.border.rounded.shadow-sm.user-dashboard-gradient-right.p-5 style="color:white"
-                h3 Facilities & Amenities
+                .h1-dashboard Facilities & Amenities
                 ul 
                   li Swimming Pool 
                   li Gym
             .col-12
               .container.border.rounded.shadow-sm.user-dashboard-gradient-right.p-5 style="color:white"
-                h3 Payment
-                h3 Payment Due: 10 Days
-                h3 Amount: MYR 10,663
+                .h1-dashboard Payment Due: 10 Days
+                .h1-dashboard.mt-3 Due Amount: MYR 10,663
