@@ -1,0 +1,146 @@
+<!-- Page Content -->
+<div class="page-content">
+    <!-- Page Header -->
+    <div class="page-header d-flex flex-column flex-md-row align-items-md-center">
+        <div class="page-header-left flex-fill">
+            <div class="page-header-title d-flex">
+                <div class="page-info mt-3 ml-0">
+                    <h5 class="page-title">Create Quiz</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form  -->
+    <%= form_for(@unit, url: admin_units_new_path, method: :post) do |f| %>
+        <!-- Section Header-->
+        <div class="section-header d-md-flex align-items-center">
+            <div class="section-header-left flex-fill">
+                <a href="<%= admin_units_path %>" class="btn btn-success">
+                    Back to Unit List
+                </a>
+            </div>
+            <div class="section-header-right ml-auto">
+                <%= link_to 'EDIT', edit_unit_path(@unit.id), class: 'btn btn-primary text-uppercase' %>
+            </div>
+        </div>
+        <!-- / Section Header-->
+        <!-- Section-->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title ml-0">Unit Details</h5>
+            </div>
+            <div class="card-body">
+                <!-- Form Fields -->
+                <div class="form-row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Unit Number</label>
+                            <%= f.number_field :unit_number, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Unit Type</label>
+                            <%= f.text_field :unit_type, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Unit Address</label>
+                            <%= f.text_area :unit_address, readonly: true, rows: 3, class: 'form-control form-readonly', style: 'resize: none;' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Storey</label>
+                            <%= f.text_field :storey, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Tenure</label>
+                            <%= f.text_field :tenure, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Floor Size</label>
+                            <%= f.text_field :floor_size, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Land Size</label>
+                            <%= f.text_field :land_size, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Washrooms</label>
+                            <%= f.number_field :washroom, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Bedrooms</label>
+                            <%= f.number_field :bedroom, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Tenant Name</label>
+                            <%= f.text_field :tenant_name, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Tenant Phone Number</label>
+                            <%= f.text_field :tenant_phone_number, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Tenant Email</label>
+                            <%= f.email_field :tenant_email, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Account Username</label>
+                            <%= f.text_field :username, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                </div>
+                <!-- / Form Fields -->
+            </div>
+        </div>
+        <!-- / Section -->
+    <% end %>
+
+    <div class="card mt-3 mt-md-4">
+        <div class="card-header">
+            <h5 class="card-title">Payment List</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-wrapper table-responsive">
+                <table id="contact-groups" class="table table-striped">
+                    <thead>
+                        <tr>
+                          <th scope="col">Date</th>
+                          <th scope="col">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="question-list">
+                      <% @payments.each do |p| %>
+                        <tr>
+                          <td scope="col"><%= p.date %></td>
+                          <td scope="col"><%= p.amount %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
