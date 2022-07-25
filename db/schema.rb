@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_24_091754) do
+ActiveRecord::Schema.define(version: 2022_07_25_095921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "complaints", force: :cascade do |t|
+    t.string "description"
+    t.bigint "unit_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["unit_id"], name: "index_complaints_on_unit_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.bigint "unit_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.date "date"
+    t.integer "amount"
+    t.index ["unit_id"], name: "index_payments_on_unit_id"
+  end
 
   create_table "units", force: :cascade do |t|
     t.integer "unit_number"
@@ -32,6 +49,10 @@ ActiveRecord::Schema.define(version: 2022_07_24_091754) do
     t.string "tenant_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rental_amount"
+    t.integer "due_amount"
   end
 
+  add_foreign_key "complaints", "units"
+  add_foreign_key "payments", "units"
 end

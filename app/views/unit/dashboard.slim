@@ -33,7 +33,6 @@
           .col-5 
             .col-12
               .container.border.rounded.shadow-sm.user-dashboard-gradient-right.p-5 style="color:white"
-                
                 .h1-dashboard 
                   | Unit Number: 
                   =@unit.unit_number
@@ -46,5 +45,9 @@
                   li Gym
             .col-12
               .container.border.rounded.shadow-sm.user-dashboard-gradient-right.p-5 style="color:white"
-                .h1-dashboard Payment Due: 10 Days
-                .h1-dashboard.mt-3 Due Amount: MYR 10,663
+                .h1-dashboard 
+                  | Monthly Rental Fee: 
+                  =@amount
+                .h1-dashboard.mt-3 
+                  | Due Amount: 
+                  =@due 

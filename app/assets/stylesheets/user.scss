@@ -628,6 +628,45 @@ border-radius:4px;
   box-shadow: none;
 }
 
+.custom-file {
+  cursor: pointer;
+}
+.custom-file,
+.custom-file-input {
+  height: 40px;
+}
+
+.custom-file-label {
+  background-color: #f5f6fa;
+  width: auto;
+  height: 40px;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: #9ea3b5;
+  line-height: 20px;
+  border-color: #ccd0e4;
+  padding: 10px 15px 10px 140px;
+  cursor: pointer;
+}
+.custom-file-label::after {
+  background-color: #45c8d7;
+  width: 120px;
+  height: 40px;
+  font-style: normal;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  border: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 10px 15px;
+  top: -1px;
+  right: auto;
+  left: -1px;
+}
+
 @media screen and (max-width: 1680px) {
 
   .details-col{

@@ -1,0 +1,48 @@
+= form_for @complaint, html:{class:'d-flex flex-column min-vh-100 justify-content-center align-items-center'}, url: maintainance_process_path, method: "POST" do |f|
+  .w-100.mb-5
+    .row.row-homepage
+      .col-2.col-sm-3
+      .col-8.col-sm-6.p-4.p-sm-5.p-lg-4.p-xl-5.pb-0.pb-sm-0.pb-lg-4.pb-xl-5
+        .table.mb-0.d-flex.justify-content-center.align-items-center
+          .row.row-homepage style="vertical-align:middle"
+            .col-12.mb-3.mb-sm-4.mb-lg-5
+              h1.h2-homepage.pl-0.pb-0#login-header style="text-align:center" Complaint
+            .col-12
+              .row.row-homepage.p-0
+                .col-12
+                  .form-group
+                    .label Image
+                    .custom-file
+                      = f.file_field :complaint_image, class: 'custom-file-input', accept: 'image/png,image/gif,image/jpeg', onchange: 'readURL(this)'
+                      label.custom-file-label#webinar_banner_label for="webinar_banner" No file chosen
+                .col-12
+                  .form-group
+                    .label Complaints Details
+                    = f.text_area :description, required: true, class: "form-control form-control-lg p-homepage mb-2 mb-sm-3 checkout-input", style: "border-radius:12px", placeholder: "Complaint Details"
+              .row.row-homepage.mt-0.mt-lg-4
+                .col-12.col-lg-3.d-flex.justify-content-center.justify-content-sm-start.align-items-center
+                  = link_to "Back", unit_dashboard_path, class:"btn btn-dark btn-outline-secondary h3-homepage px-5 px-md-4 px-sm-4 py-sm-2 mt-3 mt-sm-2 login-button-font w-100", style: 'border-radius: 12px; color: white;'
+                .col-0.col-lg-4
+                .col-12.col-lg-5.d-flex.justify-content-center.justify-content-sm-end.align-items-center
+                  = f.submit "Send Complaint", class: 'btn btn-dark btn-outline-secondary h3-homepage px-5 px-md-4 px-sm-4 py-sm-2 mt-3 mt-sm-2 login-button-font w-100', style: 'border-radius: 12px; color: white;'
+      .col-2.col-sm-3
+
+javascript:
+
+  
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      
+      if (input.files[0].size <= 2097152) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $("#preview").attr("src", e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+        $("#webinar_banner_label").text(input.files[0].name);
+      }
+      else {
+          alert('File size exceeds 2 MB.');
+      }
+    }
+  }
