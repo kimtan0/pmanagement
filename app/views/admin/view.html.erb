@@ -5,7 +5,7 @@
         <div class="page-header-left flex-fill">
             <div class="page-header-title d-flex">
                 <div class="page-info mt-3 ml-0">
-                    <h5 class="page-title">Create Quiz</h5>
+                    <h5 class="page-title">Unit <%= @unit.unit_number %></h5>
                 </div>
             </div>
         </div>
@@ -21,6 +21,7 @@
                 </a>
             </div>
             <div class="section-header-right ml-auto">
+                <%= link_to 'Print', print_unit_path(@unit.id), class: 'btn btn-primary', target: :_blank %>
                 <%= link_to 'EDIT', edit_unit_path(@unit.id), class: 'btn btn-primary text-uppercase' %>
             </div>
         </div>
@@ -85,6 +86,12 @@
                         <div class="form-group">
                             <label>Bedrooms</label>
                             <%= f.number_field :bedroom, readonly: true, class: 'form-control form-readonly' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Rental Amount (in Cents)</label>
+                            <%= f.number_field :rental_amount, readonly: true, class: 'form-control form-readonly' %>
                         </div>
                     </div>
                     <div class="col-lg-6">

@@ -78,13 +78,19 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label>Washrooms</label>
-                            <%= f.number_field :washroom, required: true, class: 'form-control' %>
+                            <%= f.number_field :washroom, required: true, min: 0, class: 'form-control' %>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label>Bedrooms</label>
-                            <%= f.number_field :bedroom, required: true, class: 'form-control' %>
+                            <%= f.number_field :bedroom, required: true, min: 0, class: 'form-control' %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Rental Amount (in Cents)</label>
+                            <%= f.number_field :rental_amount, required: true, min: 0, class: 'form-control' %>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -99,7 +105,7 @@
                             <%= f.text_field :tenant_phone_number, required: true, class: 'form-control' %>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <label>Tenant Email</label>
                             <%= f.email_field :tenant_email, required: true, class: 'form-control' %>

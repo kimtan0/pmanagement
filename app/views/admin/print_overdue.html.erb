@@ -10,23 +10,6 @@
       </div>
   </div>
 
-
-  <!-- Section Header -->
-  <div class="section-header d-md-flex align-items-center">
-    <div class="section-header-left flex-fill">
-        <a href="<%= admin_dashboard_path %>" class="btn btn-success">
-            Back to Dashboard
-        </a>
-    </div>
-    <div class="section-header-right ml-auto">
-      <%= link_to 'Print', print_overdue_path, class: 'btn btn-primary', target: :_blank %>
-      <div class="btn-group" role="group">
-        <%= link_to 'Create New Unit', admin_units_new_path, class: 'btn btn-primary-gradient' %>
-      </div>
-    </div>
-  </div>
-  <!-- / Section Header -->
-
   <!-- List Table -->
   <div class="table-wrapper table-responsive">
     <table id="contact-groups" class="table table-striped">
@@ -42,7 +25,6 @@
           <th scope="col">Tenant Name</th>
           <th scope="col">Tenant Phone Number</th>
           <th scope="col">Payment Due</th>
-          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -58,11 +40,6 @@
             <td scope="col"><%= u.tenant_name %></td>
             <td scope="col"><%= u.tenant_phone_number %></td>
             <td scope="col"><%= u.due_amount.clamp(0, 2147483647) %></td>
-            <td class="table-action">
-              <%= link_to 'View', view_unit_path(u.id), class: 'btn btn-primary', data: { turbolinks: false } %>
-              <%= link_to 'Edit', edit_unit_path(u.id), class: 'btn btn-success', data: { turbolinks: false } %>
-              <%= link_to 'Delete', delete_unit_path(u.id), id: u.id, class: 'btn btn-danger btn-delete', data: {confirm: 'Are you sure want to delete this quiz?'}, method: :delete %>
-            </td>
           </tr>
         <% end %>
       </tbody>
@@ -71,3 +48,8 @@
   <!-- / List Table -->
 
 </div>
+  
+
+<script>
+  window.print();
+</script>

@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   get 'admin/units/:id', to: 'admin#view', as: 'view_unit'
   get 'admin/units/:id/edit', to: 'admin#edit', as: 'edit_unit'
   patch 'admin/units/:id/edit', to: 'admin#update'
-  delete 'admin/units/:id', to: 'admin#destroy', as: 'delete_unit'
+  get 'admin/units/:id/delete', to: 'admin#destroy', as: 'delete_unit'
   get 'admin/overdue', to: 'admin#overdue'
+
+  get '/admin/print/list', to: 'admin#print_list', as: 'print_list'
+  get '/admin/print/unit/:id', to: 'admin#print_unit', as: 'print_unit'
+  get '/admin/print/overdue', to: 'admin#print_overdue', as: 'print_overdue'
 end
