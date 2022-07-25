@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "unit#login"
 
   get 'unit/dashboard', to: 'unit#dashboard'
   get 'unit/login', to: "unit#login"
@@ -22,4 +23,6 @@ Rails.application.routes.draw do
   get '/admin/print/list', to: 'admin#print_list', as: 'print_list'
   get '/admin/print/unit/:id', to: 'admin#print_unit', as: 'print_unit'
   get '/admin/print/overdue', to: 'admin#print_overdue', as: 'print_overdue'
+
+  get '/admin/logout', to: 'admin#logout'
 end

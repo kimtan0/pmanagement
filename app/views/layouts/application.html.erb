@@ -26,7 +26,9 @@
         <%= render partial: "layouts/header_admin" %>
       <% end %>
     <% else %>
-      <%= render partial: "layouts/header" %>
+      <% if action_name != 'login' %>
+        <%= render partial: "layouts/header" %>
+      <% end %>
     <% end %>
   </head>
 

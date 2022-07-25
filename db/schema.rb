@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_25_095921) do
+ActiveRecord::Schema.define(version: 2022_07_25_112713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2022_07_25_095921) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "rental_amount"
     t.integer "due_amount"
+    t.string "user_type"
   end
 
   add_foreign_key "complaints", "units"
