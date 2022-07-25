@@ -11,6 +11,7 @@ gem 'bootstrap', '~> 5.0.0'
 gem 'simple_form'
 gem 'pg', '~> 1.1'
 gem 'whenever', require: false
+gem 'aws-sdk-sns', '~> 1.1'
 
 #Use the below gem if you want to filter Units, just ask me, I used it in my fyp
 #gem 'acts-as-taggable-on', '~> 9.0'
