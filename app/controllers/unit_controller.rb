@@ -27,19 +27,21 @@ class UnitController < ApplicationController
 
   def payment
     @unit = Unit.find(cookies[:unit_id])
-
     @due =  (@unit.payment.due / 100).to_s + "$"
   end
 
   def payment_process
   end
 
-  def maintainance
+  def complaint
     unit = Unit.find(cookies[:unit_id])
     @complaint = Complaint.new
   end
 
-  def maintainance_process
+  def complaint_process
+    unit = Unit.find(cookies[:unit_id])
+    Complaint.create(complaint_params.merge(unit_id: unit.id))
+    redirect_to unit_dashboard_path
   end
 
   private
@@ -48,6 +50,10 @@ class UnitController < ApplicationController
     if !cookies[:unit_id].present?
       redirect_to unit_login_path
     end
+  end
+
+  def complaint_params
+    params.require(:complaint).permit(:description, :complaint_image)
   end
 
   def already_logged_in

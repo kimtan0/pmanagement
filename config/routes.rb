@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   post 'unit/login', to: "unit#authentication", as: :authentication
   get 'unit/payment', to: "unit#payment"
   post 'unit/payment', to: "unit#payment_process", as: :payment_process
-  get 'unit/maintainance', to: "unit#maintainance"
-  post 'unit/maintainance', to: "unit#maintainance_process", as: :maintainance_process
+  get 'unit/complaint', to: "unit#complaint"
+  post 'unit/complaint', to: "unit#complaint_process", as: :complaint_process
 
   # Admin pages
   get 'admin/dashboard', to: 'admin#dashboard'
