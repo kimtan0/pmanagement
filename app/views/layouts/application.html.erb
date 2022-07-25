@@ -22,7 +22,9 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <% if controller.controller_name == 'admin' %>
-      <%= render partial: "layouts/header_admin" %>
+      <% if action_name != 'print_list' && action_name != 'print_unit' && action_name != 'print_overdue' %>
+        <%= render partial: "layouts/header_admin" %>
+      <% end %>
     <% else %>
       <%= render partial: "layouts/header" %>
     <% end %>

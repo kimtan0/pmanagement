@@ -19,7 +19,7 @@
         </a>
     </div>
     <div class="section-header-right ml-auto">
-      <button class="btn btn-danger" id="bulkDelete">Bulk Delete</button>
+      <%= link_to 'Print', print_list_path, class: 'btn btn-primary', target: :_blank %>
       <div class="btn-group" role="group">
         <%= link_to 'Create New Unit', admin_units_new_path, class: 'btn btn-primary-gradient' %>
       </div>
@@ -27,15 +27,14 @@
   </div>
   <!-- / Section Header -->
 
-  <!-- Webinar List Table -->
-  <div class='alert alert-success' id="bulk-notification">Successfully deleted selected Units.</div>
+  <!-- List Table -->
   <div class="table-wrapper table-responsive">
     <table id="contact-groups" class="table table-striped">
       <thead>
         <tr>
           <th scope="col">
             <div class="form-check">
-              <input type="checkbox" class="custom-check-input checkAll" />
+                &nbsp;
             </div>
           </th>
           <th scope="col">Unit Number</th>
@@ -51,60 +50,24 @@
           <tr id="row_<%= u.id %>">
             <td scope="col">
               <div class="form-check">
-                <input type="checkbox" class="custom-check-input check" value="<%= u.id %>" />
+                  &nbsp;
               </div>
             </td>
             <td scope="col"><%= u.unit_number %></td>
             <td scope="col"><%= u.unit_type.capitalize %></td>
             <td scope="col"><%= u.tenant_name %></td>
             <td scope="col"><%= u.tenant_phone_number %></td>
-            <td scope="col"><%= '' %></td>
+            <td scope="col"><%= u.due_amount.clamp(0, 2147483647) %></td>
             <td class="table-action">
               <%= link_to 'View', view_unit_path(u.id), class: 'btn btn-primary', data: { turbolinks: false } %>
               <%= link_to 'Edit', edit_unit_path(u.id), class: 'btn btn-success', data: { turbolinks: false } %>
-              <%= link_to 'Delete', delete_unit_path(u.id), id: u.id, class: 'btn btn-danger btn-delete', data: {confirm: 'Are you sure want to delete this quiz?'}, method: :delete %>
+              <%= link_to 'Delete', delete_unit_path(u.id), class: 'btn btn-danger btn-delete' %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
-  <!-- / Webinar List Table -->
+  <!-- / List Table -->
 
 </div>
-
-
-
-<!-- / Page Content -->
-<script>
-  $('#bulk-notification').hide();
-  
-  $('#bulkDelete').on('click', function(e){
-    var arr = [];
-
-    $(".check:checked").each(function() {
-      arr.push($(this).val());
-    });
-    
-    arr.forEach(function(item) {
-        $.ajax({
-          url: '/admin/units/' + item,
-          type: 'DELETE',
-          data: {},
-          success: function(result) {
-            $('#row_' + item).remove();
-          }
-        });
-    });
-
-    $('#bulk-notification').show();
-
-    setTimeout(function() {
-      window.location.reload();
-    }, 5000);
-  });
-
-  $('.btn-delete').click(function(e) {
-    $('#row_' + $(this).attr('id')).remove();
-  });
-</script>
