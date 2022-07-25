@@ -1,0 +1,52 @@
+<!-- Page Content -->
+<div class="page-content">
+  <div class="page-header d-flex flex-column flex-md-row align-items-md-center">
+      <div class="page-header-left flex-fill">
+          <div class="page-header-title d-flex">
+              <div class="page-info mt-3 ml-0">
+                <h5 class="page-title">Property Units</h5>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="table-wrapper table-responsive">
+    <table id="contact-groups" class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">
+            <div class="form-check">
+                &nbsp;
+            </div>
+          </th>
+          <th scope="col">Unit Number</th>
+          <th scope="col">Unit Type</th>
+          <th scope="col">Tenant Name</th>
+          <th scope="col">Tenant Phone Number</th>
+          <th scope="col">Payment Due</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @units.each do |u|%>
+          <tr id="row_<%= u.id %>">
+            <td scope="col">
+              <div class="form-check">
+                &nbsp;
+              </div>
+            </td>
+            <td scope="col"><%= u.unit_number %></td>
+            <td scope="col"><%= u.unit_type.capitalize %></td>
+            <td scope="col"><%= u.tenant_name %></td>
+            <td scope="col"><%= u.tenant_phone_number %></td>
+            <td scope="col"><%= u.due_amount.clamp(0, 2147483647) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+  window.print();
+</script>

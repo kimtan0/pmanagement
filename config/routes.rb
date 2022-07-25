@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "unit#login"
 
   get 'unit/dashboard', to: 'unit#dashboard'
   get 'unit/login', to: "unit#login"
@@ -8,4 +9,20 @@ Rails.application.routes.draw do
   get 'unit/complaint', to: "unit#complaint"
   post 'unit/complaint', to: "unit#complaint_process", as: :complaint_process
 
+  # Admin pages
+  get 'admin/dashboard', to: 'admin#dashboard'
+  get 'admin/units', to: 'admin#unit_list'
+  get 'admin/units/new', to: 'admin#new'
+  post 'admin/units/new', to: 'admin#create'
+  get 'admin/units/:id', to: 'admin#view', as: 'view_unit'
+  get 'admin/units/:id/edit', to: 'admin#edit', as: 'edit_unit'
+  patch 'admin/units/:id/edit', to: 'admin#update'
+  get 'admin/units/:id/delete', to: 'admin#destroy', as: 'delete_unit'
+  get 'admin/overdue', to: 'admin#overdue'
+
+  get '/admin/print/list', to: 'admin#print_list', as: 'print_list'
+  get '/admin/print/unit/:id', to: 'admin#print_unit', as: 'print_unit'
+  get '/admin/print/overdue', to: 'admin#print_overdue', as: 'print_overdue'
+
+  get '/admin/logout', to: 'admin#logout'
 end

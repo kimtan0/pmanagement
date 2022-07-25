@@ -20,9 +20,16 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%= render partial: "layouts/header" %>
+    <% if controller.controller_name == 'admin' %>
+      <% if action_name != 'print_list' && action_name != 'print_unit' && action_name != 'print_overdue' %>
+        <%= render partial: "layouts/header_admin" %>
+      <% end %>
+    <% else %>
+      <% if action_name != 'login' %>
+        <%= render partial: "layouts/header" %>
+      <% end %>
+    <% end %>
   </head>
 
   <body>
