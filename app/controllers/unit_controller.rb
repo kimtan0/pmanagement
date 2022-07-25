@@ -11,6 +11,11 @@ class UnitController < ApplicationController
   def login
   end
 
+  def logout
+    cookies.delete :unit_id
+    redirect_to unit_login_path
+  end
+
   def authentication
     unit = Unit.find_by(username: params[:username])
     if unit.present? && unit.authenticate(params[:password])
@@ -27,10 +32,14 @@ class UnitController < ApplicationController
 
   def payment
     @unit = Unit.find(cookies[:unit_id])
-    @due =  (@unit.payment.due / 100).to_s + "$"
+    @due =  (@unit.due_amount / 100).to_s + "$"
   end
 
   def payment_process
+    @unit = Unit.find(cookies[:unit_id])
+    Payment.create(date: Date.today, amount: params[:amount], unit: @unit)
+    @unit.update(due_amount: @unit.due_amount - (params[:amount].to_i)*100)
+    redirect_to unit_dashboard_path
   end
 
   def complaint

@@ -11,11 +11,11 @@
         <div class="col-3">
           <%= link_to "Maintainance", unit_complaint_path, class: "nav-link link-hover-color" %>
         </div>
-        <div class="col-3">
+        <div class="col-3 ">
           <%= link_to "Payment", unit_payment_path, class: "nav-link link-hover-color" %>
         </div>
-        <div class="col-3 nav-btn-login">
-          <%= link_to "Login", "#", class: "btn btn-success ml-4 px-5 h3-homepage", id: "button-login" %>
+        <div class="col-3 nav-btn-login mt-2 mb-2">
+          <%= link_to "Logout", admin_logout_path, class: "btn btn-success ml-4 px-5 h3-homepage", id: "button-login" %>
         </div>
       </div>
     </div>
@@ -31,8 +31,8 @@
       <li class="nav-item active"> 
         <%= link_to "Payment", unit_payment_path, class: "nav-link link-hover-color" %>
       </li>
-      <li class="nav-item nav-btn-login">
-        <%= link_to "Login", "#", class: "btn btn-success ml-4 px-5 h3-homepage", id: "button-login" %>
+      <li class="nav-item nav-btn-login mt-2 ">
+        <%= link_to "Logout", admin_logout_path, class: "btn btn-success ml-4 px-5 h3-homepage", id: "button-login" %>
       </li>
     </ul>
   </div>
