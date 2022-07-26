@@ -5,7 +5,7 @@ class AdminController < ApplicationController
   end
 
   def unit_list
-    @units = Unit.all.order(unit_number: :desc)
+    @units = Unit.where(user_type: 'client').order(unit_number: :desc)
   end
 
   def new
@@ -49,7 +49,7 @@ class AdminController < ApplicationController
   end 
 
   def overdue
-    @units = Unit.where('due_amount > ?', 0)
+    @units = Unit.where(user_type: 'client').where('due_amount > ?', 0)
   end
 
   def print_list
@@ -62,7 +62,7 @@ class AdminController < ApplicationController
   end
 
   def print_overdue
-    @units = Unit.where('due_amount > ?', 0)
+    @units = Unit.where(user_type: 'client').where('due_amount > ?', 0)
   end
 
   def logout
