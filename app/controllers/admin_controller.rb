@@ -53,7 +53,7 @@ class AdminController < ApplicationController
   end
 
   def print_list
-    @units = Unit.all.order(unit_number: :desc)
+    @units = Unit.where(user_type: 'client').order(unit_number: :desc)
   end
 
   def print_unit

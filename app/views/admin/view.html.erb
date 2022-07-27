@@ -142,7 +142,7 @@
                       <% @payments.each do |p| %>
                         <tr>
                           <td scope="col"><%= p.date %></td>
-                          <td scope="col"><%= p.amount %></td>
+                          <td scope="col"><%= '$' + p.amount.to_s %></td>
                         </tr>
                       <% end %>
                     </tbody>

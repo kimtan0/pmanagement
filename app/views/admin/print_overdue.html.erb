@@ -39,7 +39,7 @@
             <td scope="col"><%= u.unit_type.capitalize %></td>
             <td scope="col"><%= u.tenant_name %></td>
             <td scope="col"><%= u.tenant_phone_number %></td>
-            <td scope="col"><%= u.due_amount.clamp(0, 2147483647) %></td>
+            <td scope="col"><%= '$' + (u.due_amount.clamp(0, 2147483647) / 100).to_s %></td>
           </tr>
         <% end %>
       </tbody>

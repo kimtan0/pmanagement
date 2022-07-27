@@ -54,7 +54,7 @@
             <td scope="col"><%= u.unit_type.capitalize %></td>
             <td scope="col"><%= u.tenant_name %></td>
             <td scope="col"><%= u.tenant_phone_number %></td>
-            <td scope="col"><%= u.due_amount.clamp(0, 2147483647) %></td>
+            <td scope="col"><%= '$' + (u.due_amount.clamp(0, 2147483647) / 100).to_s %></td>
             <td class="table-action">
               <%= link_to 'View', view_unit_path(u.id), class: 'btn btn-primary', data: { turbolinks: false } %>
               <%= link_to 'Edit', edit_unit_path(u.id), class: 'btn btn-success', data: { turbolinks: false } %>
