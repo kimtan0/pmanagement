@@ -1,5 +1,5 @@
 class UnitController < ApplicationController
-  before_action :check_unit, only: [:dashboard]
+  before_action :check_unit, except: [:login, :authentication]
   before_action :already_logged_in, only: [:login, :authentication]
 
   def dashboard
@@ -52,9 +52,8 @@ class UnitController < ApplicationController
     complaint = Complaint.create(complaint_params.merge(unit_id: unit.id))
 
     s3 = Aws::S3::Resource.new(
-    access_key_id: 'ASIA5KMCHSKMSBPKHKNC',
-    secret_access_key: 'KhofqLZzrlYthekvJUpj6QX8b5Vlwq6aEjVUNOkl',
-    session_token: "FwoGZXIvYXdzEG0aDC+NS7wSi5aJWQPkQiLJAU/68li9PpsjksmLmIXgjOcB6UJxwZNGdvOrvUwLYgpn/zqZ++ygnMkeHwSVHsvY25MnO+1z3sZ3M6hub+VCM57kLkXxNKah01xqFaQJfuYRnthPvtPYYhYrwQMP6D3pW74hcHU+zPmY1orRiYfQoQaGOJu0JmZJY3kOloVMU7zcw3v7yeUeNQALYRK4As2hsUbQddwgIZSU7JCbFsGAHyp8AtyYqp+dLJpKtXtGsoxs6G/IiradjIAxe67ftvxC+sI/RrVtKg15Dijv+vmWBjItyPmbNly4niLWL3f6c3l7qkRZkun2EqmfgOdWMDXeTgvAVbCVzUHvmMYWLjtG",
+    access_key_id: 'AKIA33IFZ26W2O4EIJEN',
+    secret_access_key: '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',
     region: 'us-east-1'
     )
     dates = []
@@ -73,18 +72,17 @@ class UnitController < ApplicationController
         index = i
       end
     end
-     url = "https://dazuk5tleph55.cloudfront.net/" + keys[index].to_s
+    url = "https://db8gxc4fo63io.cloudfront.net/" + keys[index].to_s
 
 
 
     sns = Aws::SNS::Resource.new(
-      access_key_id: "ASIA5KMCHSKMSBPKHKNC",
-      secret_access_key: "KhofqLZzrlYthekvJUpj6QX8b5Vlwq6aEjVUNOkl",
-      session_token: "FwoGZXIvYXdzEG0aDC+NS7wSi5aJWQPkQiLJAU/68li9PpsjksmLmIXgjOcB6UJxwZNGdvOrvUwLYgpn/zqZ++ygnMkeHwSVHsvY25MnO+1z3sZ3M6hub+VCM57kLkXxNKah01xqFaQJfuYRnthPvtPYYhYrwQMP6D3pW74hcHU+zPmY1orRiYfQoQaGOJu0JmZJY3kOloVMU7zcw3v7yeUeNQALYRK4As2hsUbQddwgIZSU7JCbFsGAHyp8AtyYqp+dLJpKtXtGsoxs6G/IiradjIAxe67ftvxC+sI/RrVtKg15Dijv+vmWBjItyPmbNly4niLWL3f6c3l7qkRZkun2EqmfgOdWMDXeTgvAVbCVzUHvmMYWLjtG",
+      access_key_id: 'AKIA33IFZ26W2O4EIJEN',
+      secret_access_key: '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',
       region: 'us-east-1'
       )
 
-    topic = sns.topic('arn:aws:sns:us-east-1:915638031001:testTopic')
+    topic = sns.topic('arn:aws:sns:us-east-1:814445352877:testTopic')
 
     topic.publish({
       message: 'Client Complaint | Client Unit Number: '+ unit.unit_number.to_s + ' | Tenant Name: '+ unit.tenant_name+' | Complaint Description: '+params[:complaint][:description] +' | Complaint Image URL: '+url
