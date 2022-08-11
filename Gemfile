@@ -70,7 +70,10 @@ end
 group :development, :production do
   gem 'aws-sdk-rails'
   gem 'aws-sdk-s3', require: false  
-  gem 'net-smtp'
+  gem 'net-smtp', require: false
+  gem 'net-imap', require: false
+  gem 'net-pop', require: false
+  #gem "mail", ">= 2.8.0.rc1"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

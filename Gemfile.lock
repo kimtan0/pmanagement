@@ -155,6 +155,14 @@ GEM
     mini_portile2 (2.6.1)
     minitest (5.15.0)
     msgpack (1.5.4)
+    net-imap (0.2.2)
+      digest
+      net-protocol
+      strscan
+    net-pop (0.1.1)
+      digest
+      net-protocol
+      timeout
     net-protocol (0.1.2)
       io-wait
       timeout
@@ -245,6 +253,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    strscan (3.0.4)
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.11)
@@ -293,6 +302,8 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  net-imap
+  net-pop
   net-smtp
   pg (~> 1.4.1)
   puma (~> 5.0)
