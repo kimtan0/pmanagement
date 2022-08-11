@@ -15,7 +15,7 @@ class AdminController < ApplicationController
   def create
     unit = Unit.create(unit_params.merge(user_type: 'client', due_amount: 0, password_digest: BCrypt::Password.create(params[:unit][:password_digest])))
 
-    redirect_to admin_dashboard_path
+    redirect_to admin_units_path
   end 
 
   def view 
@@ -36,7 +36,7 @@ class AdminController < ApplicationController
       unit.update!(unit_params.merge(password_digest: BCrypt::Password.create(params[:unit][:password_digest])))
     end
     
-    redirect_to admin_dashboard_path
+    redirect_to admin_units_path
   end
 
   def destroy
