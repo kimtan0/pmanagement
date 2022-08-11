@@ -150,14 +150,10 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.6.1)
     minitest (5.15.0)
     msgpack (1.5.4)
     nio4r (2.5.8)
     nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
-      racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.1)
     popper_js (2.11.5)
@@ -304,4 +300,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   2.3.17
+   2.1.4
