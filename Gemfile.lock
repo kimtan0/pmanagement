@@ -126,6 +126,7 @@ GEM
     chronic (0.10.2)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
+    digest (3.1.0)
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.5)
@@ -135,6 +136,7 @@ GEM
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    io-wait (0.2.3)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -153,9 +155,18 @@ GEM
     mini_portile2 (2.6.1)
     minitest (5.15.0)
     msgpack (1.5.4)
+    net-protocol (0.1.2)
+      io-wait
+      timeout
+    net-smtp (0.3.0)
+      digest
+      net-protocol
+      timeout
     nio4r (2.5.8)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.1)
     popper_js (2.11.5)
@@ -239,6 +250,7 @@ GEM
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.11)
+    timeout (0.3.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -283,6 +295,7 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  net-smtp
   pg (~> 1.4.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
