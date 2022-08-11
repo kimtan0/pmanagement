@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+#ruby '2.5.3'
 
 
 gem "figaro"
@@ -9,7 +9,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "slim-rails"
 gem 'bootstrap', '~> 5.0.0'
 gem 'simple_form'
-gem 'pg', '~> 1.1'
+gem 'pg', '~> 1.4.1'
 gem 'whenever', require: false
 gem 'aws-sdk-sns', '~> 1.1'
 
