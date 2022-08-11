@@ -12,7 +12,7 @@
                   <label style="font-size: 1.5em; color:black">Units Occupied</label>
               </div>
               <div style="height:180px">
-                  <h1 style="font-size: 8rem"><%= Unit.all.count %></h1>
+                  <h1 style="font-size: 8rem"><%= Unit.where(user_type: 'client').count %></h1>
               </div>
               <div class="btn-group info-box-action d-flex" role="group">
                   <a href="<%= admin_units_path %>" class="info-box-btn-main flex-fill btn btn-blue-gradient" style="font-size: 1.3em; text-align: center; padding: 1rem !important;">Manage Units</a>
@@ -25,7 +25,7 @@
                   <label style="font-size: 1.5em; color:black">Overdue Units</label>
               </div>
               <div style="height:180px">
-                  <h1 style="font-size: 8rem"><%= Unit.where('due_amount > ?', 0).count %></h1>
+                  <h1 style="font-size: 8rem"><%= Unit.where(user_type: 'client').where('due_amount > ?', 0).count %></h1>
               </div>
 
               <div class="btn-group info-box-action d-flex" role="group">
