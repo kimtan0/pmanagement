@@ -154,11 +154,6 @@ GEM
     minitest (5.15.0)
     msgpack (1.5.4)
     nio4r (2.5.8)
-    nokogiri
-      mini_portile2 (~> 2.6.1)
-      racc (~> 1.4)
-    nokogiri
-      racc (~> 1.4)
     pg (1.4.1)
     popper_js (2.11.5)
     public_suffix (4.0.7)
