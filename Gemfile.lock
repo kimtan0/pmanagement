@@ -302,6 +302,3 @@ DEPENDENCIES
   webdrivers
   webpacker (~> 5.0)
   whenever
-
-BUNDLED WITH
-   2.3.17
